@@ -1,6 +1,6 @@
 # Hasamex Expert Call Transcript Analyzer
 
-A lightweight, AI-powered application designed to analyze expert call transcripts, extract actionable insights, and enable cross-document Q&A with strict adherence to factual accuracy (exact quotes and timestamps).
+A lightweight, 100% local, privacy-first AI application designed to analyze expert call transcripts, extract actionable insights, and enable cross-document Q&A with strict adherence to factual accuracy (exact quotes and timestamps).
 
 ## 🚀 Features
 1. **Interview Guide Analysis**: Automatically maps interview guide questions to synthesized answers backed by exact transcript quotes and timestamps.
@@ -8,17 +8,15 @@ A lightweight, AI-powered application designed to analyze expert call transcript
 3. **Interactive Q&A**: A RAG-powered chat interface allowing users to ask ad-hoc questions across all transcripts, with guaranteed citation of sources and timestamps.
 
 ## 🏗️ Architecture & Key Decisions
-- **Hybrid Context Strategy**: Uses RAG (FAISS + OpenAI Embeddings) for scalable, targeted Q&A, but passes the *full text* to the LLM for the "Themes & Disagreements" analysis. This prevents chunking from severing cross-call contextual nuances.
-- **Accuracy-First Prompting**: All prompts use `temperature=0` and strict negative/positive constraints forcing the LLM to output exact quotes and timestamps, minimizing hallucination.
-- **Tech Stack**: Streamlit (UI), LangChain (Orchestration), OpenAI GPT-4o (Reasoning), FAISS (Vector Search).
+- **100% Local & Private (Ollama)**: Built using Ollama (Llama 3.2) and local embeddings (`nomic-embed-text`). This eliminates ongoing API costs, guarantees zero data privacy risks for sensitive expert call transcripts, and proves a production-ready architecture for enterprise environments.
+- **Hybrid Context Strategy**: Uses local FAISS vector search for scalable, targeted Q&A, but passes the *full text* to the LLM for the "Themes & Disagreements" analysis. This prevents chunking from severing cross-call contextual nuances.
+- **Modern LCEL Pipeline**: Utilizes LangChain's modern Expression Language (LCEL) for a clean, maintainable, and highly performant RAG pipeline.
+- **Accuracy-First Prompting**: All prompts use `temperature=0` and strict negative/positive constraints forcing the LLM to output exact quotes and timestamps, heavily mitigating hallucination risks.
 
 ## 🛠️ How to Run Locally
-1. Clone this repository and navigate to the folder.
-2. Create a virtual environment: `python -m venv venv` and activate it.
-3. Install dependencies: `pip install -r requirements.txt`
-4. Create a `data/` folder and place the 4 case pack files inside (`Interview_Guide.txt`, `Transcript_1_France.txt`, `Transcript_2_Germany.txt`, `Transcript_3_UK.txt`).
-5. Run the app: `streamlit run app.py`
-6. Enter your OpenAI API key in the sidebar to begin.
-
-## 📈 Product Thinking & Next Steps
-While this MVP operates on pre-transcribed text with timestamps, a production V2 would ingest raw audio, utilize Whisper for transcription + speaker diarization, and auto-generate timestamps, creating a fully end-to-end "audio-to-insights" pipeline.
+1. Clone this repository: `git clone https://github.com/YOUR_USERNAME/hasamex-case-study.git`
+2. Install Ollama from [ollama.com](https://ollama.com) and start the service.
+3. Pull the required local models:
+   ```bash
+   ollama pull llama3.2
+   ollama pull nomic-embed-text
