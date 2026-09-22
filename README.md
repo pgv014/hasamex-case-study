@@ -19,4 +19,4 @@ A lightweight, 100% local, privacy-first AI application designed to analyze expe
 3. Pull the required local models:
    ```bash
    ollama pull llama3.2
-   ollama pull nomic-embed-text
+   ollama pull nomic-embed-text.
