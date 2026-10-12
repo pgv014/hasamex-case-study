@@ -1,6 +1,6 @@
 # Hasamex Expert Call Transcript Analyzer
 
-A lightweight, 100% local, privacy-first AI application designed to analyze expert call transcripts, extract actionable insights, and enable cross-document Q&A with strict adherence to factual accuracy (exact quotes and timestamps).
+A lightweight, 100% local, privacy-first AI application designed to analyze expert call transcripts, extract actionable insights, and enable cross-document Q&A with strict adherence to factual accuracy (exact quotes and timestamps)
 
 ## 🚀 Features
 1. **Interview Guide Analysis**: Automatically maps interview guide questions to synthesized answers backed by exact transcript quotes and timestamps.
